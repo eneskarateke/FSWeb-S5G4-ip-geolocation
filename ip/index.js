@@ -33,20 +33,24 @@ async function ipAdresimiAl(){
 	ADIM 5'e gelene kadar fonksiyonunuzu test etmek için ip nizi URL'ye manuel olarak ekleyebilirsiniz.
 */
 
-benimIP = axios.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149")
-	.then(veri => {
-	console.log("data from server >", veri.data);
-	const sayfaImport = document.querySelector(".cards")
-	sayfaImport.append(myFunc(veri.data));
+ipAdresimiAl();
 
-	
-	})
-	.catch(err => {
-		console.log("Oops there is an error > ", err);
-	})
-	.finally(() => {
-		console.log("HTTP request is completed!")
-	})
+async function getData() {
+  try {
+    await ipAdresimiAl();
+    const urlm = `https://apis.ergineer.com/ipgeoapi/${benimIP}`;
+    const genelData = await axios.get(urlm);
+    console.log("data from server >", genelData.data);
+    const sayfaImport = document.querySelector(".cards");
+    sayfaImport.append(myFunc(genelData.data));
+  } catch (error) {
+    console.log("Oops there is an error > ", error);
+  } finally {
+    console.log("HTTP request is completed!");
+  }
+}
+
+getData();
 
 /*
 	ADIM 2: Geri döndürülen verileri inceleyin, bu sizin ip bilgileriniz! Bileşen fonksiyonunuzu geliştirmek içindeki bu veri yapısını
@@ -81,7 +85,7 @@ const myFunc = (nesne) =>{
 	cardDiv.setAttribute("class","card");
 
 	const imgElement = document.createElement("img");
-	imgElement.setAttribute("src", cevap.ülkebayrağı);
+	imgElement.setAttribute("src", `${cevap.ülkebayrağı}`);
 	cardDiv.append(imgElement);
 
 	const infoDiv = document.createElement("div");
@@ -140,6 +144,6 @@ return cardDiv;
 	Örnek dinamik URL kullanımı: var url = "https://apis.ergineer.com/ipgeoapi/"+benimIP; 
 */
 
-
+console.log("ipadresimialfunc", ipAdresimiAl())
 
 //kodlar buraya gelecek

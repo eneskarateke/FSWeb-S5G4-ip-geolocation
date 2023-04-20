@@ -13477,15 +13477,47 @@ function _ipAdresimiAl() {
   }));
   return _ipAdresimiAl.apply(this, arguments);
 }
-benimIP = _axios.default.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149").then(function (veri) {
-  console.log("data from server >", veri.data);
-  var sayfaImport = document.querySelector(".cards");
-  sayfaImport.append(myFunc(veri.data));
-}).catch(function (err) {
-  console.log("Oops there is an error > ", err);
-}).finally(function () {
-  console.log("HTTP request is completed!");
-});
+ipAdresimiAl();
+function getData() {
+  return _getData.apply(this, arguments);
+}
+function _getData() {
+  _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var urlm, genelData, sayfaImport;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return ipAdresimiAl();
+        case 3:
+          urlm = "https://apis.ergineer.com/ipgeoapi/".concat(benimIP);
+          _context2.next = 6;
+          return _axios.default.get(urlm);
+        case 6:
+          genelData = _context2.sent;
+          console.log("data from server >", genelData.data);
+          sayfaImport = document.querySelector(".cards");
+          sayfaImport.append(myFunc(genelData.data));
+          _context2.next = 15;
+          break;
+        case 12:
+          _context2.prev = 12;
+          _context2.t0 = _context2["catch"](0);
+          console.log("Oops there is an error > ", _context2.t0);
+        case 15:
+          _context2.prev = 15;
+          console.log("HTTP request is completed!");
+          return _context2.finish(15);
+        case 18:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2, null, [[0, 12, 15, 18]]);
+  }));
+  return _getData.apply(this, arguments);
+}
+getData();
 
 /*
 	ADIM 2: Geri döndürülen verileri inceleyin, bu sizin ip bilgileriniz! Bileşen fonksiyonunuzu geliştirmek içindeki bu veri yapısını
@@ -13516,7 +13548,7 @@ var myFunc = function myFunc(nesne) {
   var cardDiv = document.createElement("div");
   cardDiv.setAttribute("class", "card");
   var imgElement = document.createElement("img");
-  imgElement.setAttribute("src", cevap.ülkebayrağı);
+  imgElement.setAttribute("src", "".concat(cevap.ülkebayrağı));
   cardDiv.append(imgElement);
   var infoDiv = document.createElement("div");
   infoDiv.setAttribute("class", "card-info");
@@ -13559,6 +13591,8 @@ var myFunc = function myFunc(nesne) {
 	Örnek dinamik URL kullanımı: var url = "https://apis.ergineer.com/ipgeoapi/"+benimIP; 
 */
 
+console.log("ipadresimialfunc", ipAdresimiAl());
+
 //kodlar buraya gelecek
 },{"axios":"node_modules/axios/index.js","babel-core/register":"node_modules/babel-core/register.js","babel-polyfill":"node_modules/babel-polyfill/lib/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -13585,7 +13619,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52577" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52804" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
