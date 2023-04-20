@@ -34,10 +34,12 @@ async function ipAdresimiAl(){
 */
 
 benimIP = axios.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149")
-	.then(data => {
-	console.log("data from server >", data);
+	.then(veri => {
+	console.log("data from server >", veri.data);
 	const sayfaImport = document.querySelector(".cards")
-	sayfaImport.append(myFunc(data));
+	sayfaImport.append(myFunc(veri.data));
+
+	
 	})
 	.catch(err => {
 		console.log("Oops there is an error > ", err);
@@ -71,9 +73,9 @@ benimIP = axios.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149")
 	</div>
     </div>
 */
-const myFunc = ({data}) =>{
-	console.log("data inside myFunc", data)
-	const cevap = data;
+const myFunc = (nesne) =>{
+	console.log("data inside myFunc", nesne)
+	const cevap = nesne;
 
 	const cardDiv = document.createElement("div");
 	cardDiv.setAttribute("class","card");
@@ -127,7 +129,6 @@ return cardDiv;
 	ADIM 4: API'den alınan verileri kullanarak ADIM 3'te verilen yapıda bir kart oluşturun ve 
 	bu kartı DOM olarak .cards elementinin içine ekleyin. 
 */
-
 
 
 

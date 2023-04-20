@@ -13477,10 +13477,10 @@ function _ipAdresimiAl() {
   }));
   return _ipAdresimiAl.apply(this, arguments);
 }
-benimIP = _axios.default.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149").then(function (data) {
-  console.log("data from server >", data);
+benimIP = _axios.default.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149").then(function (veri) {
+  console.log("data from server >", veri.data);
   var sayfaImport = document.querySelector(".cards");
-  sayfaImport.append(myFunc(data));
+  sayfaImport.append(myFunc(veri.data));
 }).catch(function (err) {
   console.log("Oops there is an error > ", err);
 }).finally(function () {
@@ -13510,10 +13510,9 @@ benimIP = _axios.default.get("https://apis.ergineer.com/ipgeoapi/176.232.59.149"
 	</div>
     </div>
 */
-var myFunc = function myFunc(_ref) {
-  var data = _ref.data;
-  console.log("data inside myFunc", data);
-  var cevap = data;
+var myFunc = function myFunc(nesne) {
+  console.log("data inside myFunc", nesne);
+  var cevap = nesne;
   var cardDiv = document.createElement("div");
   cardDiv.setAttribute("class", "card");
   var imgElement = document.createElement("img");
@@ -13586,7 +13585,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49209" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52577" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
